@@ -58,8 +58,8 @@ pub mod king_of_the_hill {
         )?;
 
         // Send the old king's funds back
-        ctx.accounts.prize_pool.sub_lamports(ctx.accounts.game_state.prize);
-        ctx.accounts.king.add_lamports(ctx.accounts.game_state.prize);
+        ctx.accounts.prize_pool.sub_lamports(ctx.accounts.game_state.prize)?;
+        ctx.accounts.king.add_lamports(ctx.accounts.game_state.prize)?;
 
         ctx.accounts.game_state.king = ctx.accounts.payer.key();
         ctx.accounts.game_state.prize = new_prize;
